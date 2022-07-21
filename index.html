@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Main page</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/catalog.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<div class="page">
+    <header class="header">
+        <a href="#" class="logo"><img src="/image/logo.png"></a>
+        <nav class="menu-bar">
+            <div class="search">
+                <input name="search_text" id="search_text" placeholder="Search..." type="text" value="ggg">
+                <button><span class="material-icons">search</span></button>
+            </div>
+            <ol class="nav-list">
+                <li class="nav-item-right"><a href="#">
+                    <span class="material-icons">shopping_cart</span></a>
+                </li>
+                <li class="nav-item-right">
+                    <a href="#"><span class="material-icons">account_circle</span></a>
+                </li>
+                <li class="nav-item-right"><a href="#">Login|Signup</a></li>
+            </ol>
+        </nav>
+    </header>
+    <main class="main">
+        <span class="material-icons scroll">arrow_circle_up</span>
+        <div class="catalog_container">
+            <ul class="catalog _load-more">
+
+            </ul>
+        </div>
+    </main>
+    <footer class="footer">
+
+    </footer>
+</div>
+</body>
+<script type="module">
+    import {loadMoreBlock, scrollButton, ScrollWindow} from "./js/scroll.js";
+    import {fn} from "./js/function.js";
+    let scrollWindow = new ScrollWindow();
+
+    scrollWindow.loadMore();
+    window.addEventListener("scroll", fn.debounce(function (){scrollWindow.loadMore()}, 2000));
+
+    scrollButton.addEventListener("click", function (){
+        if(scrollButton.innerText === "arrow_circle_up"){
+            sessionStorage.position = scrollY;
+            window.scrollTo(scrollX, 0);
+        } else if(scrollButton.innerText === "arrow_circle_down"){
+            window.scrollTo(scrollX, sessionStorage.position);
+        }
+
+    });
+
+    window.addEventListener("scroll", fn.debounce(function (){scrollWindow.loadImage()}, 500));
+
+    window.addEventListener("scroll", function (){
+        if(scrollY > 0){
+            scrollButton.style.visibility = "visible";
+            scrollButton.innerText = "arrow_circle_up";
+            scrollButton.style.top = "10px";
+        } else {
+            scrollButton.style.visibility = "visible";
+            scrollButton.innerText = "arrow_circle_down";
+            scrollButton.style.top = "70px";
+        }
+    });
+
+    let searchButton = document.querySelector(".search button");
+
+    searchButton.addEventListener("click", function (){
+        loadMoreBlock.innerHTML = "";
+        loadMoreBlock.classList.add(".search");
+        loadMoreBlock.classList.remove(".tag");
+        let inputText = document.getElementById("search_text");
+        const isEmpty = (str) => str.trim().length === 0;
+        if(!isEmpty(inputText.value)){
+            sessionStorage.setItem('search', inputText.value);
+            new ScrollWindow().searchByPartNameOrDescription(inputText.value);
+        }
+    });
+</script>
+</html>
