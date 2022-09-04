@@ -1,0 +1,155 @@
+.main{
+    grid-area: main;
+    display: flex;
+}
+
+.catalog_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.catalog{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.catalog-item {
+    display: block;
+    border: 1px solid #fff;
+    width: 300px;
+    height: 310px;
+    margin: 10px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    background: #fff;
+}
+
+.product-item{
+    position: relative;
+    overflow: hidden;
+}
+
+.product-item img{
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.item-button{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.button{
+    text-decoration: none;
+    color: #FFD700;
+    font-size: 12px;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 2px solid #FFD700;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.3s ease-in-out;
+    display: block;
+}
+
+.button:before {
+    font-family: FontAwesome;
+    margin-right: 10px;
+}
+
+.button span {
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    font-size: 15px;
+}
+.product-item:hover .item-button {
+    opacity: 1;
+}
+
+.product-item:hover .button {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.button:hover {
+    background: black;
+}
+
+.product-title{
+    color: #5e5e5e;
+
+}
+
+.product-title a{
+    text-decoration: none;
+    color: #2e2e2e;
+    font-weight: 600;
+    margin: 5px 0 5px;
+    display: block;
+    position: relative;
+    transition: .3s ease-in-out;
+}
+
+.product-title a:hover {
+    color: #20B2AA;
+}
+
+.product-price {
+    font-size: 20px;
+    color: #2e2e2e;
+    font-weight: 700;
+}
+
+.tags {
+    padding: 0 5px;
+    text-transform: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+.tags span{
+    display: block;
+    margin-right: -5px;
+    padding-right: 10px;
+    font-size: 12px;
+    color: #20B2AA;
+    cursor: pointer;
+}
+
+.tags span:hover{
+    color: #00FFFF;
+}
+
+._loading-icon{
+    display: flex;
+    justify-content: center;
+}
+
+._loading-icon img{
+    width: 50%;
+}
+
+.scroll {
+    display: block;
+    color: white;
+    position: fixed;
+    top: 70px;
+    left: 10px;
+    visibility: hidden;
+    cursor: pointer;
+    width: 100%;
+}

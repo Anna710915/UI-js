@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Add</title>
+
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/new_product.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<div class="page">
+  <header class="header">
+    <a href="#" class="logo"><img src="/image/logo.png"></a>
+    <nav class="menu-bar">
+      <div class="search">
+        <input name="search_text" id="search_text" placeholder="Search..." type="text" value="ggg">
+        <button><span class="material-icons">search</span></button>
+      </div>
+      <ol class="nav-list">
+        <li class="nav-item-right"><a href="#">
+          <span class="material-icons">shopping_cart</span></a>
+        </li>
+        <li class="nav-item-right">
+          <a href="#"><span class="material-icons">account_circle</span></a>
+        </li>
+        <li class="nav-item-right"><a href="#">Login|Signup</a></li>
+      </ol>
+    </nav>
+  </header>
+  <main class="main">
+    <div class="new_product_caption">
+      <p>Add New Certificate</p>
+    </div>
+    <div class="new_product_wrap">
+      <form action="#">
+        <div class="field">
+          <label class="label" for="name">Name</label>
+          <input type="text" id="name" name="name">
+        </div>
+        <div class="field">
+          <label class="label" for="price">Price</label>
+          <input type="text" id="price" name="price">
+        </div>
+        <div class="field">
+          <label class="label" for="duration">Duration</label>
+          <input type="text" id="duration" name="duration">
+        </div>
+        <div class="field-textarea">
+          <label class="label">Tags</label>
+          <textarea></textarea>
+        </div>
+        <div class="field-textarea">
+          <label class="label">Description</label>
+          <textarea></textarea>
+        </div>
+        <div class="buttons">
+          <div class="cancel">
+            <input type="submit" value="Cancel">
+          </div>
+          <div class="save">
+            <input type="submit" value="Save">
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+  <footer class="footer">
+
+  </footer>
+</div>
+</body>
+</html>
